@@ -94,6 +94,9 @@ class MenuController extends BaseController
      */
 
     public function getMenuItems() {
-        throw new \Exception('implement in coding task 3');
+//        throw new \Exception('implement in coding task 3');
+        $menus = MenuItem::where('parent_id', '=', 0)->get();
+        $allMenus = MenuItem::pluck('*')->all();
+        return view('',compact('menus','allMenus'));
     }
 }
